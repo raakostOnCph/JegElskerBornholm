@@ -24,6 +24,12 @@ public class LogInServlet extends HttpServlet
             request.setAttribute("fejl", "kontoen fandtes ikke !");
             request.getRequestDispatcher("index.jsp").forward(request,response);
         }
+        if (!konto.getKode().equals(kode)) {
+
+            request.setAttribute("fejl", "den angivendendenene er forkert !");
+            request.getRequestDispatcher("index.jsp").forward(request,response);
+
+        }
 
 
     }

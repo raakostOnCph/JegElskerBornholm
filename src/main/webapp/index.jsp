@@ -18,9 +18,22 @@
     ${element.value.navn} : ${element.value.saldo}
     <br>
 
-
-
 </c:forEach>
+
+
+
+<h1>her kan du logge ind på konto</h1>
+
+<h1> ${requestScope.fejl }</h1>
+
+<form action="LogInServlet">
+    <label for="fname">angiv navn:</label><br>
+    <input type="text" id="fname" name="navn" value="navn"><br>
+    <label for="lname">angiv kode:</label><br>
+    <input type="password" id="lname" name="kode" value="hemmelig"><br><br>
+    <input type="submit" value="login">
+</form>
+
 
 
 </body>

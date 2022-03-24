@@ -16,15 +16,27 @@
 
 Din saldo er ${sessionScope.konto.saldo}
 
-
+<h1>${requestScope.fejl}</h1>
 
 <h1>Hæv </h1>
 <form action="TransaktionServlet">
-    <label for="fname">Angiv beløb:</label><br>
-    <input type="number" id="fname" name="beløb" value="0"><br>
+    <label for="hæv">Angiv beløb:</label><br>
+    <input type="number" id="hæv" name="value" value="0"><br>
 
     <input type="submit" value="Hæv">
 </form>
+
+<br>
+<br>
+
+<h1>Indsæt </h1>
+<form action="TransaktionServlet" method="post">
+    <label for="indset">Angiv beløb:</label><br>
+    <input type="number" id="indset" name="value" value="0"><br>
+
+    <input type="submit" value="indsæt">
+</form>
+
 
 
 

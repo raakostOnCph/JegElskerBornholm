@@ -34,6 +34,30 @@
     <input type="submit" value="login">
 </form>
 
+<br>
+<br>
+<br>
+<br>
+
+<h1>Opret konto</h1>
+
+
+<form action="LogInServlet" method="post">
+    <label for="navn">angiv navn:</label><br>
+    <input type="text" id="navn" name="navn" value="navn"><br>
+    <label for="kode">angiv kode:</label><br>
+    <input type="password" id="kode" name="kode" value="hemmelig"><br>
+
+    <label for="kode1">gentag koden:</label><br>
+    <input type="password" id="kode1" name="kode1" value="hemmelig"><br><br>
+
+
+    <input type="submit" value="opret konto">
+</form>
+
+
+
+
 
 
 </body>

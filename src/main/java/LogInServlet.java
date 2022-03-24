@@ -42,6 +42,33 @@ public class LogInServlet extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        String navn = request.getParameter("navn");
+
+        Map<String, Konto> kontoMap = (Map<String, Konto>) getServletContext().getAttribute("kontis");
+
+        if (kontoMap.containsKey(navn)) {
+
+            request.setAttribute("fejl", "navnet " + navn + " er allerede i brug");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+
+        String kode = request.getParameter("kode");
+        String kode1 = request.getParameter("kode1");
+
+        if (!kode.equals(kode1)) {
+
+            request.setAttribute("fejl", "de passwords er ikke ens");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+
+        }
+
+        Konto konto = new Konto(navn,kode,0);
+        kontoMap.put(konto.getNavn(),konto);
+
+        request.getRequestDispatcher("index.jsp").forward(request,response);
+
+
+
 
     }
 }

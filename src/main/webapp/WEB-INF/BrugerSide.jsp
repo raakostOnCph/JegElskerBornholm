@@ -18,6 +18,9 @@ Din saldo er ${sessionScope.konto.saldo}
 
 <h1>${requestScope.fejl}</h1>
 
+<a href="LogOutServlet">log af</a>
+
+
 <h1>Hæv </h1>
 <form action="TransaktionServlet">
     <label for="hæv">Angiv beløb:</label><br>

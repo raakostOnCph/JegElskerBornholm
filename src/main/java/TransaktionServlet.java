@@ -20,9 +20,17 @@ public class TransaktionServlet extends HttpServlet
 
         String fejlBesked = "";
 
-        if (i > konto.getSaldo()) {
-            fejlBesked = "så mange penge har du ikke";
+        try {
+            if (i > konto.getSaldo()) {
+                fejlBesked = "så mange penge har du ikke";
+            }
+        } catch (Exception e) {
+
+            request.setAttribute("fejl", "der er logget af , gå index");
+            request.getRequestDispatcher("WEB-INF/BrugerSide.jsp").forward(request, response);
         }
+
+
         if(i < 0) {
             fejlBesked = "du kan ikke hæve en negativt beløb";
         }
@@ -53,7 +61,14 @@ public class TransaktionServlet extends HttpServlet
             fejlBesked = "du ikke indsætte et negativt beløb";
 
         }
-        konto.insert(i);
+        try {
+            konto.insert(i);
+        } catch (Exception e) {
+
+            request.setAttribute("fejl", "gå til index for at logge ind");
+            request.getRequestDispatcher("WEB-INF/BrugerSide.jsp").forward(request, response);
+
+        }
 
         request.setAttribute("fejl", fejlBesked);
         request.getRequestDispatcher("WEB-INF/BrugerSide.jsp").forward(request, response);

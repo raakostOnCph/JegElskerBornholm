@@ -26,10 +26,15 @@ public class LogInServlet extends HttpServlet
         }
         if (!konto.getKode().equals(kode)) {
 
-            request.setAttribute("fejl", "den angivendendenene er forkert !");
+            request.setAttribute("fejl", "Koden var  forkert !");
             request.getRequestDispatcher("index.jsp").forward(request,response);
 
         }
+        // det når vi hvis det lykkedes
+
+        HttpSession session = request.getSession();
+        session.setAttribute("konto", konto);
+        request.getRequestDispatcher("WEB-INF/BrugerSide.jsp").forward(request, response);
 
 
     }

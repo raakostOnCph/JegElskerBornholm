@@ -16,5 +16,18 @@
 
 Din saldo er ${sessionScope.konto.saldo}
 
+
+
+<h1>Hæv </h1>
+<form action="TransaktionServlet">
+    <label for="fname">Angiv beløb:</label><br>
+    <input type="number" id="fname" name="beløb" value="0"><br>
+
+    <input type="submit" value="Hæv">
+</form>
+
+
+
+
 </body>
 </html>
